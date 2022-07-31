@@ -2,5 +2,4 @@ project: tscancode
 target: tscancode
 
 cmds:
-  - cmd: /repo/trunk/tscancode /test.cpp
-    filepath: /test.cpp
+  - cmd: /tscancode @@

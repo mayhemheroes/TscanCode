@@ -7,11 +7,5 @@ COPY . /repo
 WORKDIR /repo/trunk
 RUN make -j8
 
-RUN mkdir -p /deps
-RUN ldd /repo/trunk/tscancode | tr -s '[:blank:]' '\n' | grep '^/' | xargs -I % sh -c 'cp % /deps;'
-
 FROM ubuntu:18.04 as package
-
-COPY --from=builder /deps /deps
-COPY --from=builder /repo/trunk/tscancode /repo/trunk/tscancode
-ENV LD_LIBRARY_PATH=/deps
+COPY --from=builder /repo/trunk/tscancode /
