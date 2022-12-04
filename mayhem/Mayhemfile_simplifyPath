@@ -1,0 +1,5 @@
+project: tscancode
+target: simplifypath
+
+cmds:
+  - cmd: /fuzz_simplifyPath
